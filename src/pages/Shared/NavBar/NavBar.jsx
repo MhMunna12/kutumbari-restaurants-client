@@ -47,7 +47,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <li><Link >
+                <li><Link to='/dashboard/mycart'>
                     <button className="text-2xl hover:bg-slate-900 hover:bg-opacity-20 text-white btn bg-opacity-5 border-0 mr-2">
                         <FaShoppingCart />
                         <div className="badge badge-secondary">+{cart?.length || 0}</div>
