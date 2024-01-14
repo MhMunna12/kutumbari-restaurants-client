@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Provider/AuthProvider/AuthProvider";
-
+import { FaRegUser, FaShoppingCart } from "react-icons/fa";
+import useCart from "../../../hooks/useCart";
 const NavBar = () => {
     const { user, logOut } = useContext(AuthContext)
+    const [cart] = useCart();
     const handleLogout = () => {
         logOut()
             .then(() => { })
@@ -14,11 +16,12 @@ const NavBar = () => {
 
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/menu'>Our Menu</Link></li>
+        <li><Link to='/secret'>secret</Link></li>
         <li><Link to='/order/soup'>Our Food</Link></li>
 
         {
             user ? <>
-                <li onClick={handleLogout}><Link>{user.email}</Link></li>
+                <li onClick={handleLogout}><Link>Logout</Link></li>
             </> :
                 <>
                     <li><Link to='/login'>Login</Link></li>
@@ -44,7 +47,23 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <li><Link >
+                    <button className="text-2xl hover:bg-slate-900 hover:bg-opacity-20 text-white btn bg-opacity-5 border-0 mr-2">
+                        <FaShoppingCart />
+                        <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                    </button>
+                </Link></li>
+
+                {
+                    user ?
+                        <div className="text-3xl p-2 text-amber-300 rounded-full border-2 border-blue-300">
+                            <FaRegUser />
+                        </div>
+                        :
+                        <div className="text-3xl p-2 text-amber-300 rounded-full border-2 border-blue-300">
+                            <FaRegUser />
+                        </div>
+                }
             </div>
         </div>
     );

@@ -1,21 +1,37 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import login from '../../../assets/others/authentication2.png'
 import { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
 import { useForm } from 'react-hook-form';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
-    const { register, handleSubmit, formState: { errors }, } = useForm()
-
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm()
+    const navigate = useNavigate();
     const onSubmit = (data) => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
+
+                updateUserProfile(data.name, data.photoUrl)
+                    .then(() => {
+                        console.log('user profile updated');
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "User Create Successful!",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        reset()
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+                navigate('/login')
                 console.log(user);
-                Swal.fire("User Create Successful!");
             })
             .catch(err => {
                 console.log(err.message);
@@ -57,10 +73,17 @@ const Register = () => {
                             <form action="" onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Name</span>
+                                        <span className="label-text">PhotoUrl</span>
                                     </label>
                                     <input type="text" name='name' {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
                                     {errors.name && <span className="text-red-500">This field is required</span>}
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text"  {...register("photoUrl", { required: true })} placeholder="PhotoUrl" className="input input-bordered" />
+                                    {errors.name && <span className="text-red-500">PhotoUrl is required</span>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

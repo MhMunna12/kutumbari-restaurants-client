@@ -3,13 +3,17 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../../Provider/AuthProvider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../../assets/others/authentication.gif'
 import Swal from 'sweetalert2';
+import SocialLogin from './SocialLogin/SocialLogin';
 const Login = () => {
     const { signIn } = useContext(AuthContext)
     const captchaRef = useRef(null);
-    const [disabled, setDisabled] = useState(true)
+    const [disabled, setDisabled] = useState(true);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
     useEffect(() => {
         loadCaptchaEnginge(6);
     }, [])
@@ -41,6 +45,7 @@ const Login = () => {
                       `
                     }
                 });
+                navigate(from, { replace: true });
 
             })
             .catch(err => console.log(err))
@@ -95,11 +100,13 @@ const Login = () => {
                                     {/*<button onClick={validCaptcha} className="btn btn-outline btn-xs mt-2">validate</button>*/}
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input disabled={disabled} className="btn btn-primary" type='submit' value="Login" />
+                                    <input disabled={false} className="btn btn-primary" type='submit' value="Login" />
                                 </div>
                             </form>
                             <p className="my-4 text-center ">New Come! Create Account <Link className='text-orange-600 font-bold' to='/register'>Register</Link></p>
+                            <SocialLogin></SocialLogin>
                         </div>
+
                     </div>
                 </div>
             </div>
