@@ -17,15 +17,28 @@ const Register = () => {
 
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
-                        console.log('user profile updated');
-                        Swal.fire({
-                            position: "top-end",
-                            icon: "success",
-                            title: "User Create Successful!",
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        reset()
+                        const saveUsers = { name: data.name, email: data.email, }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUsers)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    Swal.fire({
+                                        position: "top-end",
+                                        icon: "success",
+                                        title: "User Create Successful!",
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    reset()
+                                }
+                            })
+
                     })
                     .catch(err => {
                         console.log(err);
