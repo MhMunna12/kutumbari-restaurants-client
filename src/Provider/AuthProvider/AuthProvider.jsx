@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
             // }
             if (createUser) {
                 const loggedUser = {
-                    email: currentUser.email,
+                    email: currentUser?.email,
                 }
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',
@@ -67,6 +67,7 @@ const AuthProvider = ({ children }) => {
                     .then(data => {
                         console.log('jwt', data);
                         localStorage.setItem('access-token', data.token)
+                        setLoading(false);
                     })
                     .catch(err => {
                         console.log(err.message);
@@ -74,9 +75,6 @@ const AuthProvider = ({ children }) => {
             } else {
                 localStorage.removeItem('access_token')
             }
-
-
-            setLoading(false);
         });
         return () => {
             return unsubscribe();
