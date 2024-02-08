@@ -86,18 +86,19 @@ const Register = () => {
                             <form action="" onSubmit={handleSubmit(onSubmit)}>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">PhotoUrl</span>
+                                        <span className="label-text">Name</span>
                                     </label>
                                     <input type="text" name='name' {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
                                     {errors.name && <span className="text-red-500">This field is required</span>}
                                 </div>
-                                <div className="form-control">
+                                {/*
+<div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Name</span>
                                     </label>
                                     <input type="text"  {...register("photoUrl", { required: true })} placeholder="PhotoUrl" className="input input-bordered" />
                                     {errors.name && <span className="text-red-500">PhotoUrl is required</span>}
-                                </div>
+                                </div>*/}
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>

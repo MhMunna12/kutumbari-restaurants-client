@@ -35,14 +35,14 @@ const Dashboard = () => {
                         {
                             isAdmin ?
                                 <>
-                                    <li><Link to='/dashboard//home'><FaHome />Admin Home</Link></li>
+                                    <li><Link to='/dashboard/adminHome'><FaHome />Admin Home</Link></li>
                                     <li><Link to='/dashboard/additem'><ImSpoonKnife />Add Item</Link></li>
-                                    <li><Link to='/dashboard/manage'><AiOutlineMenuUnfold />Manage Item</Link></li>
+                                    <li><Link to='/dashboard/manageitems'><AiOutlineMenuUnfold />Manage Item</Link></li>
                                     <li><Link to='/dashboard/allusers'><FaUsers /> All Users</Link></li>
                                 </>
                                 :
                                 <>
-                                    <li><Link to='/dashboard//home'><FaHome />User Home</Link></li>
+                                    <li><Link to='/dashboard/userHome'><FaHome />User Home</Link></li>
                                     <li><Link to='/dashboard/reservation'><FaCalendarAlt /> Reservation</Link></li>
                                     <li><Link to='/dashboard/history'><IoWalletSharp />Payment History</Link></li>
                                     <li><Link to='/dashboard/mycart'><FaShoppingCart /> MY CART</Link></li>
