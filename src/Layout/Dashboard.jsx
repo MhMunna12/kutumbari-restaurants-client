@@ -44,7 +44,7 @@ const Dashboard = () => {
                                 <>
                                     <li><Link to='/dashboard/userHome'><FaHome />User Home</Link></li>
                                     <li><Link to='/dashboard/reservation'><FaCalendarAlt /> Reservation</Link></li>
-                                    <li><Link to='/dashboard/history'><IoWalletSharp />Payment History</Link></li>
+                                    <li><Link to='/dashboard/paymentHistory'><IoWalletSharp />Payment History</Link></li>
                                     <li><Link to='/dashboard/mycart'><FaShoppingCart /> MY CART</Link></li>
                                 </>
                         }
