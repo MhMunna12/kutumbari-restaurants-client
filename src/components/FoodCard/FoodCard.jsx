@@ -19,7 +19,7 @@ const FoodCard = ({ food }) => {
         console.log(item);
         if (user && user.email) {
             const cartItem = { menuItemId: _id, name, image, price, email: user.email }
-            fetch('http://localhost:5000/carts', {
+            fetch('https://kutombari-restuarant-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

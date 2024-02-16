@@ -15,7 +15,7 @@ const SocialLogin = () => {
                 const loggedInUser = result.user
                 console.log(loggedInUser);
                 const saveUsers = { name: loggedInUser.displayName, email: loggedInUser.email, }
-                fetch('http://localhost:5000/users', {
+                fetch('https://kutombari-restuarant-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

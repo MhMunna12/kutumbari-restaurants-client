@@ -43,7 +43,7 @@ const AuthProvider = ({ children }) => {
             console.log('current user', currentUser);
             //get and set token
             // if (currentUser) {
-            //     axios.post('http://localhost:5000/jwt', { email: createUser.email })
+            //     axios.post('https://kutombari-restuarant-server.vercel.app/jwt', { email: createUser.email })
             //         .then(data => {
             //             console.log(data.data.token);
             //             localStorage.setItem('access_token', data.data.token)
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
                 const loggedUser = {
                     email: currentUser?.email,
                 }
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://kutombari-restuarant-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

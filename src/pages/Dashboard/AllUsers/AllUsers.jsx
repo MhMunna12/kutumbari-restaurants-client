@@ -17,7 +17,7 @@ const AllUsers = () => {
         }
     })
     const handleMakeAdmin = (user) => {
-        fetch(`http://localhost:5000/users/admin/${user._id}`, {
+        fetch(`https://kutombari-restuarant-server.vercel.app/users/admin/${user._id}`, {
             method: 'PATCH'
         })
             .then(response => response.json())
@@ -46,7 +46,7 @@ const AllUsers = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${user._id}`, {
+                fetch(`https://kutombari-restuarant-server.vercel.app/users/${user._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

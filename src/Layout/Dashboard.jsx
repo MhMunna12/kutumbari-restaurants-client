@@ -56,8 +56,6 @@ const Dashboard = () => {
                         <li><Link to='/'><FaHome />Home</Link></li>
                         <li><Link to='/menu'><FaShoppingBag />Shop</Link></li>
                         <li><Link to='contract'><MdEmail />contact</Link></li>
-
-                        <Link className="flex gap-2 items-center ml-3 mt-5"><FaShoppingCart /> MY CART</Link>
                     </ul>
 
                 </div>

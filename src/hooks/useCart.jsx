@@ -13,7 +13,7 @@ const useCart = () => {
         enabled: !loading,
         //1st option
         // queryFn: async () => {
-        //     const result = await fetch(`http://localhost:5000/carts?email=${user.email}`, {
+        //     const result = await fetch(`https://kutombari-restuarant-server.vercel.app/carts?email=${user.email}`, {
         //         method: 'GET',
         //         headers: {
         //             authorization: `Bearer ${localStorage.getItem('access-token')}`

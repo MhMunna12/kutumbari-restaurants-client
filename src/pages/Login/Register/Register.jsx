@@ -18,7 +18,7 @@ const Register = () => {
                 updateUserProfile(data.name, data.photoUrl)
                     .then(() => {
                         const saveUsers = { name: data.name, email: data.email, }
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://kutombari-restuarant-server.vercel.app/users', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'

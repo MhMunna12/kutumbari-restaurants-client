@@ -10,7 +10,7 @@ import icon from '../../../assets/quote.svg';
 const Testimonials = () => {
     const [reviews, setReview] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://kutombari-restuarant-server.vercel.app/reviews')
             .then(response => response.json())
             .then(data => setReview(data))
     }, [])
