@@ -10,7 +10,7 @@ const UserHome = () => {
     const { data: userStats = [] } = useQuery({
         queryKey: ['user-stats'],
         queryFn: async () => {
-            const res = await axiosSecure.get(`http://localhost:5000/user-stats/${user.email}`);
+            const res = await axiosSecure.get(`https://kutombari-restuarant-server.vercel.app/user-stats/${user.email}`);
             return res.data;
         }
     })
