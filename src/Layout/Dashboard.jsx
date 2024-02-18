@@ -6,6 +6,7 @@ import { FaUsers } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
 import { Helmet } from "react-helmet-async";
+import { MdPreview } from "react-icons/md";
 import useAdmin from "../hooks/useAdmin";
 const Dashboard = () => {
     // const isAdmin = true;
@@ -45,12 +46,10 @@ const Dashboard = () => {
                                     <li><Link to='/dashboard/userHome'><FaHome />User Home</Link></li>
                                     <li><Link to='/dashboard/reservation'><FaCalendarAlt /> Reservation</Link></li>
                                     <li><Link to='/dashboard/paymentHistory'><IoWalletSharp />Payment History</Link></li>
+                                    <li><Link to='/dashboard/review'><MdPreview />Review</Link></li>
                                     <li><Link to='/dashboard/mycart'><FaShoppingCart /> MY CART</Link></li>
                                 </>
                         }
-
-
-
 
                         <div className="divider text-white"></div>
                         <li><Link to='/'><FaHome />Home</Link></li>

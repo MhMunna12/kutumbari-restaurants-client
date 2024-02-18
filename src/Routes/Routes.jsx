@@ -18,6 +18,7 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/Payment/PaymentHistory";
+import PageNotFound from "../pages/PageNotFound/PageNotFound";
 
 
 
@@ -103,6 +104,11 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
                 loader: ({ params }) => fetch(`https://kutombari-restuarant-server.vercel.app/menu/${params.id}`)
             },
-        ]
+        ],
+
+    },
+    {
+        path: '*',
+        element: <PageNotFound />
     }
 ])
